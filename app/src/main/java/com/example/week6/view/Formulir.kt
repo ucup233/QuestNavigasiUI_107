@@ -2,14 +2,16 @@ package com.example.week6.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.DividerDefaults.Thickness
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.R
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
+import com.example.week6.R
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -25,7 +27,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormIsian(
-    jenisKelamin: List<String> = listOf("Laki-laki","Perempuan"),
+    jenisK: List<String> = listOf("Laki-laki","Perempuan"),
     OnSubmitBtnClick: () -> Unit
 ){
     Scaffold(modifier = Modifier,
@@ -54,4 +56,16 @@ fun FormIsian(
             .padding(all = 20.dp)
             .width(width = 250.dp), thickness = Thickness, color = Color.Red
         )
+        Row {
+            jenisK.forEach {
+                    item->
+                Row(verticalAlignment = Alignment.CenterVertically){
+                    RadioButton(
+                        selected = false,
+                        onClick = {}
+                    )
+                    Text(text = item)
+                }
+            }
+        }
     }
